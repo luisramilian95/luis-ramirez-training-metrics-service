@@ -7,6 +7,7 @@
 		<module>model</module>
 		<module>dao</module>
 		<module>service</module>
+		<module>controller</module>
 		<module>webapp</module>
 	</modules>
 	<parent>
@@ -22,6 +23,7 @@
 	<description>Training Metrics Service</description>
 	<properties>
 		<java.version>11</java.version>
+		<start-class>metrics.Application</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -50,6 +52,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
+				<configuration>
+					<mainClass>metrics.Application</mainClass>
+					<classifier>exec</classifier>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+
 			</plugin>
 		</plugins>
 	</build>
