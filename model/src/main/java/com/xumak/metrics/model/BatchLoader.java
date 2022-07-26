@@ -1,12 +1,19 @@
 package com.xumak.metrics.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "batch_loader_metrics")
-public class BatchLoader {
+@Getter
+@Setter
+public class BatchLoader implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +22,7 @@ public class BatchLoader {
     @Basic(optional = false)
     @Column(name = "timestamp", insertable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     private Date timestamp;
 
     @Column(name = "file_name")
@@ -30,91 +38,36 @@ public class BatchLoader {
 
     @Column(name = "file_processed")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date file_processed;
+    private Date fileProcessed;
 
     @Column(name = "number_of_records")
     private Integer numberOfRecords;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public Date getFileCreated() {
-        return fileCreated;
-    }
-
-    public void setFileCreated(Date fileCreated) {
-        this.fileCreated = fileCreated;
-    }
-
-    public Date getFilePickedUp() {
-        return filePickedUp;
-    }
-
-    public void setFilePickedUp(Date filePickedUp) {
-        this.filePickedUp = filePickedUp;
-    }
-
-    public Date getFile_processed() {
-        return file_processed;
-    }
-
-    public void setFile_processed(Date file_processed) {
-        this.file_processed = file_processed;
-    }
-
-    public Integer getNumberOfRecords() {
-        return numberOfRecords;
-    }
-
-    public void setNumberOfRecords(Integer numberOfRecords) {
-        this.numberOfRecords = numberOfRecords;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BatchLoader that = (BatchLoader) o;
-        return id.equals(that.id);
+        return getId().equals(that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
         return "BatchLoader{" +
-                "id=" + id +
-                ", timestamp=" + timestamp +
-                ", fileName='" + fileName + '\'' +
-                ", fileCreated=" + fileCreated +
-                ", filePickedUp=" + filePickedUp +
-                ", file_processed=" + file_processed +
-                ", numberOfRecords=" + numberOfRecords +
+                "id=" + getId() +
+                ", timestamp=" + getTimestamp() +
+                ", fileName='" + getFileName() + '\'' +
+                ", fileCreated=" + getFileCreated() +
+                ", filePickedUp=" + getFilePickedUp() +
+                ", file_processed=" + getFileProcessed() +
+                ", numberOfRecords=" + getNumberOfRecords() +
                 '}';
     }
+
 }

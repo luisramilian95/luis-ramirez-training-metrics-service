@@ -1,9 +1,16 @@
 package com.xumak.metrics.dao;
 
-import com.xumak.metrics.model.BatchLoader;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import com.xumak.metrics.model.dto.BatchLoaderDTO;
 
-@Repository
-public interface BatchLoaderDAO extends CrudRepository<BatchLoader, Long> {
+import java.util.Date;
+import java.util.List;
+
+public interface BatchLoaderDAO {
+
+    BatchLoaderDTO getById(Long id);
+
+    List<BatchLoaderDTO> getByTimestamp(Date start, Date end);
+
+    Boolean save(BatchLoaderDTO batchLoader);
+
 }

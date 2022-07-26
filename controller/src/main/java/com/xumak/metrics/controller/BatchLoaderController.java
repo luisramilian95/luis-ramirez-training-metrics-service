@@ -1,21 +1,26 @@
 package com.xumak.metrics.controller;
 
-import com.xumak.metrics.service.IBatchLoadService;
+import com.xumak.metrics.model.dto.AppResponse;
+import com.xumak.metrics.model.dto.BatchLoaderDTO;
+import com.xumak.metrics.service.IMetricService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("batch-loader-metrics")
 public class BatchLoaderController {
 
     @Autowired
-    IBatchLoadService service;
+    IMetricService<BatchLoaderDTO> service;
 
-    @GetMapping
-    public String hello() {
-        return "Hello World";
+    @PostMapping
+    public AppResponse persistBatchLoader(@RequestBody BatchLoaderDTO batchLoader) {
+        return  service.persist(batchLoader);
+    }
+
+    @GetMapping("/{id}")
+    public BatchLoaderDTO getById(@PathVariable Long id) {
+        return service.getById(id);
     }
 
 }

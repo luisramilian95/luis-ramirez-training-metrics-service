@@ -23,7 +23,7 @@
 	<description>Training Metrics Service</description>
 	<properties>
 		<java.version>11</java.version>
-		<start-class>metrics.Application</start-class>
+		<start-class>com.xumak.metrics.Application</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,6 +45,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--Flyway-->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -54,7 +62,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
 				<configuration>
-					<mainClass>metrics.Application</mainClass>
+					<mainClass>com.xumak.metrics.Application</mainClass>
 					<classifier>exec</classifier>
 					<outputDirectory>${project.build.directory}</outputDirectory>
 				</configuration>

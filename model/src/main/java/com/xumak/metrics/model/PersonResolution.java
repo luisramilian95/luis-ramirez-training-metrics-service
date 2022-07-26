@@ -1,12 +1,19 @@
 package com.xumak.metrics.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "person_resolution_service_metrics")
-public class PersonResolution {
+@Getter
+@Setter
+public class PersonResolution  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +22,7 @@ public class PersonResolution {
     @Basic(optional = false)
     @Column(name = "timestamp", insertable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
     private Date timestamp;
 
     @Column(name = "individual_matches")
@@ -33,85 +41,29 @@ public class PersonResolution {
     private String endpoint;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Integer getIndividualMatches() {
-        return individualMatches;
-    }
-
-    public void setIndividualMatches(Integer individualMatches) {
-        this.individualMatches = individualMatches;
-    }
-
-    public Integer getHouseholdMatches() {
-        return householdMatches;
-    }
-
-    public void setHouseholdMatches(Integer householdMatches) {
-        this.householdMatches = householdMatches;
-    }
-
-    public Integer getNonMatches() {
-        return nonMatches;
-    }
-
-    public void setNonMatches(Integer nonMatches) {
-        this.nonMatches = nonMatches;
-    }
-
-    public Integer getErrors() {
-        return errors;
-    }
-
-    public void setErrors(Integer errors) {
-        this.errors = errors;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PersonResolution that = (PersonResolution) o;
-        return id.equals(that.id);
+        return getId().equals(that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
         return "PersonResolutionService{" +
-                "id=" + id +
-                ", timestamp=" + timestamp +
-                ", individualMatches=" + individualMatches +
-                ", householdMatches=" + householdMatches +
-                ", nonMatches=" + nonMatches +
-                ", errors=" + errors +
-                ", endpoint='" + endpoint + '\'' +
+                "id=" + getId() +
+                ", timestamp=" + getTimestamp() +
+                ", individualMatches=" + getIndividualMatches() +
+                ", householdMatches=" + getHouseholdMatches() +
+                ", nonMatches=" + getNonMatches() +
+                ", errors=" + getErrors() +
+                ", endpoint='" + getEndpoint() + '\'' +
                 '}';
     }
 }
