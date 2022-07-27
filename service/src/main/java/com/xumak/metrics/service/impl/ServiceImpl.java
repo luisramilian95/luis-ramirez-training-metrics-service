@@ -8,6 +8,6 @@ class ServiceImpl implements IService {
 
     @Override
     public String hello() {
-        return "adfadfadf";
+        return "Hello World!";
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hello")
-public class Controller {
+public class HelloController {
 
     @Autowired
     private IService service;
