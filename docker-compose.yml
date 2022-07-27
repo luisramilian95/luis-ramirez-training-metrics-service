@@ -21,7 +21,6 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_
     volumes:
       - db:/var/lib/postgresql/data
     networks:

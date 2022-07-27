@@ -3,28 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>metrics</artifactId>
-        <groupId>com.xumak</groupId>
+        <artifactId>resolution-metrics</artifactId>
+        <groupId>com.xumak.metrics</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xumak.metrics</groupId>
     <artifactId>webapp</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.xumak</groupId>
-            <artifactId>controller</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.xumak.metrics</groupId>
+            <artifactId>service</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
 
 </project>

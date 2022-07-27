@@ -1,10 +1,10 @@
 package com.xumak.metrics.dao.impl;
 
 import com.xumak.metrics.dao.PersonResolutionDAO;
-import com.xumak.metrics.mapper.PersonResolutionMapper;
+import com.xumak.metrics.dao.mapper.PersonResolutionMapper;
 import com.xumak.metrics.model.PersonResolution;
 import com.xumak.metrics.model.dto.PersonResolutionDTO;
-import com.xumak.metrics.repository.PersonResolutionRepository;
+import com.xumak.metrics.dao.repository.PersonResolutionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

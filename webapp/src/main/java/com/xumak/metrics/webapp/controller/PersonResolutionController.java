@@ -1,4 +1,4 @@
-package com.xumak.metrics.controller;
+package com.xumak.metrics.webapp.controller;
 
 import com.xumak.metrics.model.dto.AppResponse;
 import com.xumak.metrics.model.dto.PersonResolutionDTO;

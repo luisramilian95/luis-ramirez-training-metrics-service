@@ -1,4 +1,4 @@
-package com.xumak.metrics.mapper;
+package com.xumak.metrics.dao.mapper;
 
 import com.xumak.metrics.model.BatchLoader;
 import com.xumak.metrics.model.dto.BatchLoaderDTO;

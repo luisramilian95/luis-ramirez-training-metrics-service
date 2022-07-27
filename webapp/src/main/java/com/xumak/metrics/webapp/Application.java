@@ -2,8 +2,12 @@ package com.xumak.metrics.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.xumak.metrics")
+@EnableJpaRepositories(basePackages = "com.xumak.metrics.dao")
+@EntityScan(basePackages = "com.xumak.metrics.model")
 public class Application {
 
 	public static void main(String[] args) {

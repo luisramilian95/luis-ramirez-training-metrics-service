@@ -7,7 +7,6 @@
 		<module>model</module>
 		<module>dao</module>
 		<module>service</module>
-		<module>controller</module>
 		<module>webapp</module>
 	</modules>
 	<parent>
@@ -17,8 +16,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.xumak</groupId>
-	<artifactId>metrics</artifactId>
+	<groupId>com.xumak.metrics</groupId>
+	<artifactId>resolution-metrics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>training-metrics-service</name>
 	<description>Training Metrics Service</description>
@@ -45,6 +44,18 @@
 			</properties>
 		</profile>
 	</profiles>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.7.3-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>

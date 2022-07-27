@@ -1,4 +1,4 @@
-package com.xumak.metrics.mapper;
+package com.xumak.metrics.dao.mapper;
 
 import com.xumak.metrics.model.PersonResolution;
 import com.xumak.metrics.model.dto.PersonResolutionDTO;
