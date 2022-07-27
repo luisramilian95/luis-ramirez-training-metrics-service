@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.xumak.metrics</groupId>
     <artifactId>model</artifactId>
     <packaging>jar</packaging>
 

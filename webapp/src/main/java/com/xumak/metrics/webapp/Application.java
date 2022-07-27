@@ -1,4 +1,4 @@
-package com.xumak.metrics;
+package com.xumak.metrics.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

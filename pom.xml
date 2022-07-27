@@ -16,15 +16,36 @@
 		<version>2.7.3-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.xumak</groupId>
 	<artifactId>metrics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>training-metrics-service</name>
 	<description>Training Metrics Service</description>
+
 	<properties>
 		<java.version>11</java.version>
-		<start-class>com.xumak.metrics.Application</start-class>
+		<start-class>com.xumak.metrics.webapp.Application</start-class>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>docker</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.profiles.active>docker</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<spring.profiles.active>prod</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -51,22 +72,24 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-
 				<configuration>
-					<mainClass>com.xumak.metrics.Application</mainClass>
+					<mainClass>${start-class}</mainClass>
 					<classifier>exec</classifier>
 					<outputDirectory>${project.build.directory}</outputDirectory>
 				</configuration>
-
 				<executions>
 					<execution>
 						<goals>
@@ -74,10 +97,10 @@
 						</goals>
 					</execution>
 				</executions>
-
 			</plugin>
 		</plugins>
 	</build>
+
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
