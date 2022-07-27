@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.List;
+
 @Service
 @Qualifier("BatchLoaderService")
 public class BatchLoadServiceImpl implements IMetricService<BatchLoaderDTO> {
@@ -25,5 +28,10 @@ public class BatchLoadServiceImpl implements IMetricService<BatchLoaderDTO> {
     @Override
     public BatchLoaderDTO getById(Long id) {
         return dao.getById(id);
+    }
+
+    @Override
+    public List<BatchLoaderDTO> getByTimestamps(Date start, Date end) {
+        return dao.getByTimestamp(start, end);
     }
 }

@@ -29,7 +29,8 @@ public class BatchLoaderDAOImpl implements BatchLoaderDAO {
 
     @Override
     public List<BatchLoaderDTO> getByTimestamp(Date start, Date end) {
-        return null;
+        List<BatchLoader> batchLoaders = repository.findByTimestampBetween(start, end);
+        return mapper.toBatchLoaderDTOs(batchLoaders);
     }
 
     @Override

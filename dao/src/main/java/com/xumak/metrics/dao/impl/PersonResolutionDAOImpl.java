@@ -28,7 +28,8 @@ public class PersonResolutionDAOImpl implements PersonResolutionDAO {
 
     @Override
     public List<PersonResolutionDTO> getByTimestamp(Date start, Date end) {
-        return null;
+        List<PersonResolution> personResolutions = repository.findByTimestampBetween(start, end);
+        return mapper.toBatchLoaderDTOs(personResolutions);
     }
 
     @Override

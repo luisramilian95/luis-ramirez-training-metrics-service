@@ -8,6 +8,9 @@ import com.xumak.metrics.model.dto.AppResponse;
 import com.xumak.metrics.service.IMetricService;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import java.util.Date;
+import java.util.List;
+
 
 @Service
 @Qualifier("PersonResolutionService")
@@ -26,5 +29,10 @@ public class PersonResolutionServiceImpl implements IMetricService<PersonResolut
     @Override
     public PersonResolutionDTO getById(Long id) {
         return dao.getById(id);
+    }
+
+    @Override
+    public List<PersonResolutionDTO> getByTimestamps(Date start, Date end) {
+        return dao.getByTimestamp(start, end);
     }
 }
