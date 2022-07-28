@@ -8,7 +8,7 @@ config_file ?= config.env
 include $(config_file)
 export $(shell sed 's/=.*//' $(config_file))
 
-# Define the enviroment variables by default if necessary:
+# Define the environment variables by default if necessary:
 ifeq ($(APP_NAME),)
     APP_NAME = metrics-app
 endif
@@ -35,7 +35,7 @@ endif
 
 ##################################################################
 
-all : permission clean configure_environment compile run 
+all : permission clean clean_db configure_environment compile run
 
 .PHONY: all
 
@@ -46,10 +46,13 @@ clean:
 	@echo "cleaning"
 	sh ./mvnw clean 
 	rm -rf $(APP_NAME).jar configurations
-	
+
+clean_db:
+	docker stop $(APP_NAME)-postgres >> /dev/null 2>&1 || true
+	docker rm $(APP_NAME)-postgres >> /dev/null 2>&1 || true
 
 build_db:
-	docker stop $(APP_NAME)-postgres >> /dev/null 2>&1 || true 
+	docker stop $(APP_NAME)-postgres >> /dev/null 2>&1 || true
 	docker rm $(APP_NAME)-postgres >> /dev/null 2>&1 || true
 	docker run --name $(APP_NAME)-postgres -e POSTGRES_PASSWORD=$(DB_PASSWORD) -e POSTGRES_USER=$(DB_USERNAME) -e POSTGRES_DB=metrics -p$(DB_PORT):5432 -d postgres
 
