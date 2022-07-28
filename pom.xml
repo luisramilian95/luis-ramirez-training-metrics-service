@@ -29,18 +29,18 @@
 
 	<profiles>
 		<profile>
-			<id>docker</id>
+			<id>default</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<spring.profiles.active>docker</spring.profiles.active>
+				<spring.profiles.active>default</spring.profiles.active>
 			</properties>
 		</profile>
 		<profile>
-			<id>prod</id>
+			<id>docker</id>
 			<properties>
-				<spring.profiles.active>prod</spring.profiles.active>
+				<spring.profiles.active>docker</spring.profiles.active>
 			</properties>
 		</profile>
 	</profiles>

@@ -2,7 +2,7 @@ package com.xumak.metrics.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +22,7 @@ public class BatchLoader implements Serializable {
     @Basic(optional = false)
     @Column(name = "timestamp", insertable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp
+    @ColumnDefault("current_timestamp")
     private Date timestamp;
 
     @Column(name = "file_name")
