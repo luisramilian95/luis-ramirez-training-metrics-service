@@ -64,6 +64,8 @@ docker-compose up --build
 
 ### Services 
 
+- **Swagger** [Test](http://localhost:8080/metrics/swagger-test.html)
+
 - **Person Resolution Metrics** 
 
 | Path                                                                | Method | Description                             |
