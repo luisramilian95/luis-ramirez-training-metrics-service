@@ -35,7 +35,7 @@ endif
 
 ##################################################################
 
-all : permission clean clean_db configure_environment compile run
+all : permission clean configure_environment compile run
 
 .PHONY: all
 
