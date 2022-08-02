@@ -71,8 +71,9 @@ configure_environment:
 	echo "spring.datasource.url=jdbc:postgresql://$(DB_HOST):$(DB_PORT)/metrics" >> configurations/application.properties
 	echo "spring.datasource.username=$(DB_USERNAME)" >> configurations/application.properties
 	echo "spring.datasource.password=$(DB_PASSWORD)" >> configurations/application.properties
-	echo "flyway.user=$(DB_USERNAME)" >> configurations/application.properties
-	echo "flyway.password=$(DB_USERNAME)" >> configurations/application.properties
+	echo "spring.flyway.user=$(DB_USERNAME)" >> configurations/application.properties
+	echo "spring.flyway.password=$(DB_USERNAME)" >> configurations/application.properties
+	echo "spring.flyway.url=jdbc:postgresql://$(DB_HOST):$(DB_PORT)/metrics" >> configurations/application.properties
 
 compile:
 	@echo "compiling ..."

@@ -35,12 +35,22 @@
 			</activation>
 			<properties>
 				<spring.profiles.active>default</spring.profiles.active>
+				<!--
+				<spring.flyway.user>admin</spring.flyway.user>
+				<spring.flyway.password>admin</spring.flyway.password>
+				<spring.flyway.url></spring.flyway.url>
+				-->
 			</properties>
 		</profile>
 		<profile>
 			<id>docker</id>
 			<properties>
 				<spring.profiles.active>docker</spring.profiles.active>
+				<!--
+				<spring.flyway.user>admin</spring.flyway.user>
+				<spring.flyway.password>admin</spring.flyway.password>
+				<spring.flyway.url></spring.flyway.url>
+				-->
 			</properties>
 		</profile>
 	</profiles>
@@ -111,6 +121,22 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!--
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>8.5.13</version>
+				<configuration>
+					<user>${spring.flyway.user}</user>
+					<password>${spring.flyway.password}</password>
+					<url>${spring.flyway.url}</url>
+					<schemas>
+						<schema>public</schema>
+					</schemas>
+				</configuration>
+			</plugin>
+			-->
 		</plugins>
 	</build>
 
