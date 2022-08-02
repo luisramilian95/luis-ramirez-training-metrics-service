@@ -2,12 +2,14 @@ package com.xumak.metrics.service.impl;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(classes = {com.xumak.metrics.service.IService.class})
+@ExtendWith(MockitoExtension.class)
 public class ServiceImplTest {
 
     @InjectMocks
