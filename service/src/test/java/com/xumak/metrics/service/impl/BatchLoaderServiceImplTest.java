@@ -2,7 +2,6 @@ package com.xumak.metrics.service.impl;
 import com.xumak.metrics.dao.BatchLoaderDAO;
 import com.xumak.metrics.model.dto.AppResponse;
 import com.xumak.metrics.model.dto.BatchLoaderDTO;
-import com.xumak.metrics.service.IMetricService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,8 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-
 
 import java.util.ArrayList;
 import java.util.Date;
