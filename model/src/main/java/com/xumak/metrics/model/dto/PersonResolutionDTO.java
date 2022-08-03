@@ -3,7 +3,6 @@ package com.xumak.metrics.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import java.util.Date;
 
 @Getter
