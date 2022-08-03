@@ -40,7 +40,6 @@ make
 
 - **Run docker-compose**
 
-
 1. Go to the project
 
 ```sh
@@ -59,6 +58,41 @@ cd luis-ramirez-training-metrics-service
 docker-compose up --build 
 ```
 
+- **Run with Maven**
+
+1. Go to the project
+
+```sh
+cd luis-ramirez-training-metrics-service
+```
+
+2. In case you don't have a postgres database run the command
+
+```sh
+make build_db
+```
+3. In case you have a postgres database running, modify the `application.properties`
+
+
+4. Run with Maven
+
+```sh
+mvn clean  spring-boot:run -f webapp/pom.xml
+```
+
+- **Clean**
+
+1. Clean the built files 
+
+```sh
+make clean 
+```
+
+2. Clean the database
+
+```sh
+make clean_db 
+```
 
 ## Usage
 
