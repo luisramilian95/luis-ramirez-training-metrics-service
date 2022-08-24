@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: xumak-app
+  name: xumak-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xumak-app
+  template:
+    metadata:
+      labels:
+        app: xumak-app
+    spec:
+      containers:
+        - image: public.ecr.aws/d6d6j6a0/xumak-training
+          imagePullPolicy: IfNotPresent
+          name: xumak-app
+          ports:
+            - containerPort: 8080
