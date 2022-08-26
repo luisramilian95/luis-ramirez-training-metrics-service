@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: xumak-db
+  name: xumak-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xumak-db
+  template:
+    metadata:
+      labels:
+        app: xumak-db
+    spec:
+      containers:
+        - image: postgres
+          imagePullPolicy: IfNotPresent
+          name: xumak-db
+          env:
+            - name: POSTGRES_USER
+              value: admin
+            - name: POSTGRES_PASSWORD
+              value: admin
+            - name: POSTGRES_DB
+              value: metrics
+          ports:
+            - containerPort: 5432
